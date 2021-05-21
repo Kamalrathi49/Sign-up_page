@@ -3,13 +3,13 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const config = {
-  apiKey: "AIzaSyB0zIwxVckWGF-3dNSIJF_aY4C55kN60eg",
-  authDomain: "crwn-db-1b9bb.firebaseapp.com",
-  projectId: "crwn-db-1b9bb",
-  storageBucket: "crwn-db-1b9bb.appspot.com",
-  messagingSenderId: "56757117573",
-  appId: "1:56757117573:web:be771fdb17ae7cdc5fffec",
-  measurementId: "G-0W63DJ17G7",
+  apiKey: "AIzaSyDA8NHd1hP_kMNOD5-iTTWogpwxn16Bq3s",
+  authDomain: "nemesis-task.firebaseapp.com",
+  projectId: "nemesis-task",
+  storageBucket: "nemesis-task.appspot.com",
+  messagingSenderId: "815601632598",
+  appId: "1:815601632598:web:018eb1ff15b850ebb4c2f7",
+  measurementId: "G-T0BV3E6VXG"
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
