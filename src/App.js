@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import SignIn from "./component/sign-in/sign-in.jsx";
+import SignUp from "./component/signup/signup.jsx";
+
+import { GlobalStyle } from "./global.style";
+
+import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <GlobalStyle />
+        <BrowserRouter>
+        <Switch>
+          <Route path="/sign-up" component={SignUp} />
+          <Route path="/sign-in" component={SignIn} />
+        </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
