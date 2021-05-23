@@ -3,8 +3,6 @@ import CustomButton from "../custom-button/custom-button";
 
 import { Link } from "react-router-dom";
 
-import FormInput from "../form-input/form-input";
-
 import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./sign-in.style.scss";
@@ -33,58 +31,47 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div id="container">
+      <div id="signin-container">
         <header>Sign In</header>
-        <form method="post">
+        <form method="post" onSubmit={this.handelSubmit}>
           <fieldset>
-            <br />
-            <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Full Name"
-              required
-              autofocus
-            />
-            <br />
-
+            <br /> <br />
             <input
               type="email"
               name="email"
-              id="email"
+              value={this.state.email}
+              onChange={this.handleChange}
               placeholder="E-mail"
               required
-            />
+            />{" "}
             <br />
-
             <input
               type="password"
               name="password"
-              id="password"
+              onChange={this.handleChange}
+              value={this.state.password}
               placeholder="Password"
               required
-            />
+            />{" "}
             <br />
-
-            <input
-              type="password"
-              name="confirm-password"
-              id="confirm-password"
-              placeholder="Confirm Password"
-              required
-            />
-
-            <label for="submit"></label>
-            <CustomButton
-              type="submit"
-              name="submit"
-              id="submit"
-              
-            >
+            <br />
+            <CustomButton type="submit" id="submit">
               {" "}
               Sign In
             </CustomButton>
-            <p style={{color:"white"}}>Don't have an account: <Link to="/sign-up"> <span style={{color:"#4169E1", textDecoration:"underline"}} >Sign up</span></Link> </p>
+            <hr />
+            <button onClick={signInWithGoogle} className="social-signin google">
+              Log in with Google
+            </button>
+            <p style={{ color: "white" }}>
+              Don't have an account:{" "}
+              <Link to="/sign-up">
+                {" "}
+                <span style={{ color: "#4169E1", textDecoration: "underline" }}>
+                  Sign up
+                </span>
+              </Link>{" "}
+            </p>
           </fieldset>
         </form>
       </div>

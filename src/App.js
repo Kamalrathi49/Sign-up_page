@@ -4,8 +4,6 @@ import SignIn from "./component/sign-in/sign-in.jsx";
 import SignUp from "./component/signup/signup.jsx";
 import HomePage from "./component/homepage/homepage.jsx";
 
-import { GlobalStyle } from "./global.style";
-
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
@@ -22,9 +20,8 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
       createUserProfileDocument(user);
-      
     });
   }
 
@@ -35,7 +32,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <GlobalStyle />
         <BrowserRouter>
           <Switch>
             <Route path="/sign-in" component={SignIn} />

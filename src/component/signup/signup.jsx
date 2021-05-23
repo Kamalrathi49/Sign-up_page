@@ -4,45 +4,71 @@ import "./signup.style.scss";
 
 import CustomButton from "../custom-button/custom-button";
 
-import {signInWithGoogle} from "../../firebase/firebase.utils"
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 import { Link } from "react-router-dom";
 
 class SignUp extends React.Component {
   render() {
     return (
-      <div className="sign-up">
-        <div id="login-box">
-          <div class="left">
-            <h1 className="signup-title">Sign Up</h1>
-
-            <input type="text" name="username" placeholder="Username" />
-            <input type="text" name="email" placeholder="E-mail" />
-            <input type="password" name="password" placeholder="Password" />
+      <div id="signup-container">
+        <header>Sign Up</header>
+        <form method="post">
+          <fieldset>
+            <br />
             <input
-              type="password"
-              name="password2"
-              placeholder="Retype password"
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Full Name"
+              required
+              autoFocus
             />
 
-            <div className="login-btns">
-              <CustomButton type="submit">Sign in</CustomButton>
-              <button onClick={signInWithGoogle} class="social-signin google">
-                Log in with Google
-              </button>
-            </div>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="E-mail"
+              required
+            />
 
-            <p>
-              Already have an account?{" "}
-              <Link
-                to="/sign-in"
-                style={{ color: "blue", textDecoration: "underline" }}
-              >
-                Sign in
-              </Link>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+
+            <input
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              placeholder="Confirm Password"
+              required
+            />
+
+            <label htmlFor="submit"></label>
+            <CustomButton type="submit" id="submit">
+              {" "}
+              Sign Up
+            </CustomButton>
+            <hr />
+            <button onClick={signInWithGoogle} className="social-signin google">
+              Sign up with Google
+            </button>
+            <p style={{ color: "white" }}>
+              Already have an account:{" "}
+              <Link to="/sign-in">
+                {" "}
+                <span style={{ color: "#4169E1", textDecoration: "underline" }}>
+                  Sign up
+                </span>
+              </Link>{" "}
             </p>
-          </div>
-        </div>
+          </fieldset>
+        </form>
       </div>
     );
   }
