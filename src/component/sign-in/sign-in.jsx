@@ -33,48 +33,60 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div className="sign-in">
-        <div id="login-box">
-          <div class="up-left">
-            <h1 className="signin-title">Sign In</h1>
+      <div id="container">
+        <header>Sign In</header>
+        <form method="post">
+          <fieldset>
+            <br />
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Full Name"
+              required
+              autofocus
+            />
+            <br />
 
-            <form onSubmit={this.handelSubmit}>
-              <FormInput
-                type="text"
-                value={this.state.email}
-                name="email"
-                handleChange={this.handleChange}
-                label="Email"
-                required
-              />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="E-mail"
+              required
+            />
+            <br />
 
-              <FormInput
-                type="password"
-                value={this.state.password}
-                name="password"
-                handleChange={this.handleChange}
-                label="Password"
-                required
-              />
-            </form>
-            <div className="login-btns">
-              <CustomButton type="submit">Sign in</CustomButton>
-              <button onClick={signInWithGoogle} class="social-signin google">
-                Log in with Google
-              </button>
-            </div>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+            <br />
 
-            <p>
-              Don't have an account?{" "}
-              <Link
-                to="/sign-up"
-                style={{ color: "blue", textDecoration: "underline" }}
-              >
-                Sign up
-              </Link>
-            </p>
-          </div>
-        </div>
+            <input
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              placeholder="Confirm Password"
+              required
+            />
+
+            <label for="submit"></label>
+            <CustomButton
+              type="submit"
+              name="submit"
+              id="submit"
+              
+            >
+              {" "}
+              Sign In
+            </CustomButton>
+            <p style={{color:"white"}}>Don't have an account: <Link to="/sign-up"> <span style={{color:"#4169E1", textDecoration:"underline"}} >Sign up</span></Link> </p>
+          </fieldset>
+        </form>
       </div>
     );
   }

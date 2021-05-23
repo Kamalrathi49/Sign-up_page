@@ -9,18 +9,17 @@ const config = {
   storageBucket: "nemesis-task.appspot.com",
   messagingSenderId: "815601632598",
   appId: "1:815601632598:web:018eb1ff15b850ebb4c2f7",
-  measurementId: "G-T0BV3E6VXG"
+  measurementId: "G-T0BV3E6VXG",
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
-  const userRef = firestore.doc(`users/${userAuth.uid}`);
-
+  const userRef = firestore.doc(`user/${userAuth.uid}`);
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
-    const { displayName, email, additionalData } = userAuth;
+    const { displayName, email } = userAuth;
     const createdAt = new Date();
 
     try {
@@ -28,14 +27,14 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         displayName,
         email,
         createdAt,
-        ...additionalData,
-      });
-    } catch (error) {
-      console.log("error creating user", error.message);
+        additionalData
+      })
+
+    }
+    catch (error) {
+
     }
   }
-
-  return userRef;
 };
 
 firebase.initializeApp(config);
