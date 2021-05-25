@@ -1,5 +1,5 @@
 import React from "react";
-import CustomButton from "../custom-button/custom-button";
+import CustomButton from "../../component/custom-button/custom-button";
 
 import { Link } from "react-router-dom";
 
@@ -65,7 +65,7 @@ class SignIn extends React.Component {
             </button>
             <p style={{ color: "white" }}>
               Don't have an account:{" "}
-              <Link to="/sign-up">
+              <Link to="/signup">
                 {" "}
                 <span style={{ color: "#4169E1", textDecoration: "underline" }}>
                   Sign up

@@ -1,8 +1,9 @@
 import React from "react";
 
-import SignIn from "./component/sign-in/sign-in.jsx";
-import SignUp from "./component/signup/signup.jsx";
-import HomePage from "./component/homepage/homepage.jsx";
+import SignIn from "./pages/sign-in_page/sign-in.jsx";
+import SignUp from "./pages/sign-up_page/signup.jsx";
+import SignOut from "./component/sign-out/signOut.jsx";
+import HomePage from "./pages/homepage/homepage.jsx";
 
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 
@@ -31,6 +32,7 @@ class App extends React.Component {
               ...snapShot.data(),
             },
           });
+          console.log(this.state);
         });
       }
 
@@ -45,15 +47,11 @@ class App extends React.Component {
     return (
       <div>
         <BrowserRouter>
+        <SignOut currentUser={this.state.currentUser} />
           <Switch>
-            <Route path="/sign-in" component={SignIn} />
-            <Route path="/sign-Up" component={SignUp} />
-            <Route
-              exact
-              path="/"
-              component={HomePage}
-              currentUser={this.state.currentUser}
-            />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <Route exact path="/" component={HomePage} />
           </Switch>
         </BrowserRouter>
       </div>
