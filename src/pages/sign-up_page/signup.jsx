@@ -102,6 +102,7 @@ class SignUp extends React.Component {
               placeholder="Confirm Password"
               required
             />
+            <br/>
 
             <CustomButton type="submit" id="submit">
               {" "}

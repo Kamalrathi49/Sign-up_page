@@ -1,5 +1,7 @@
 import React from "react";
 
-const HomePage = ({ currentUser }) => <div>home page</div>;
+import "./homepage.style.scss"
+
+const HomePage = ({ currentUser }) => <div className="home">Dash Board</div>;
 
 export default HomePage;

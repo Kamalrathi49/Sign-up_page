@@ -3,7 +3,7 @@ import CustomButton from "../../component/custom-button/custom-button";
 
 import { Link } from "react-router-dom";
 
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./sign-in.style.scss";
 
@@ -17,10 +17,17 @@ class SignIn extends React.Component {
     };
   }
 
-  handelSubmit = (event) => {
+  handelSubmit = async (event) => {
     event.preventDefault();
 
-    this.setState({ email: "", password: "" });
+    const { email, password } = this.state;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      alert(error);
+    }
   };
 
   handleChange = (event) => {
@@ -53,6 +60,7 @@ class SignIn extends React.Component {
               placeholder="Password"
               required
             />{" "}
+            <br />
             <br />
             <br />
             <CustomButton type="submit" id="submit">

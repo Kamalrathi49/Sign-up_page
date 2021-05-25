@@ -47,11 +47,11 @@ class App extends React.Component {
     return (
       <div>
         <BrowserRouter>
-        <SignOut currentUser={this.state.currentUser} />
+          <SignOut currentUser={this.state.currentUser} />
           <Switch>
-            <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
-            <Route exact path="/" component={HomePage} />
+            <Route path="/" component={HomePage} />
+            <Route path="/signin" component={SignIn} />
           </Switch>
         </BrowserRouter>
       </div>
