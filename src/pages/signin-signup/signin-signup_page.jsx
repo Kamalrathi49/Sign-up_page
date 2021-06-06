@@ -18,8 +18,8 @@ function TabPanel(props) {
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`nav-tabpanel-${index}`}
-      aria-labelledby={`nav-tab-${index}`}
+      id={`scrollable-auto-tabpanel-${index}`}
+      aria-labelledby={`scrollable-auto-tab-${index}`}
       {...other}
     >
       {value === index && (
@@ -39,31 +39,20 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
   return {
-    id: `nav-tab-${index}`,
-    "aria-controls": `nav-tabpanel-${index}`,
+    id: `scrollable-auto-tab-${index}`,
+    "aria-controls": `scrollable-auto-tabpanel-${index}`,
   };
-}
-
-function LinkTab(props) {
-  return (
-    <Tab
-      component="a"
-      onClick={(event) => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
-  );
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    width: "100%",
     backgroundColor: theme.palette.background.paper,
   },
 }));
 
-export default function SignInAndSignUp_page() {
+export default function ScrollableTabsButtonAuto() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -73,15 +62,18 @@ export default function SignInAndSignUp_page() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="" color="default">
         <Tabs
-          variant="fullWidth"
           value={value}
           onChange={handleChange}
-          aria-label="nav tabs example"
+          indicatorColor="secondary"
+          textColor="primary"
+          variant="scrollable"
+          scrollButtons="auto"
+          aria-label="scrollable auto tabs example"
         >
-          <LinkTab label="Page One" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="Page Two" href="/trash" {...a11yProps(1)} />
+          <Tab label="Item One" {...a11yProps(0)} />
+          <Tab label="Item Two" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>

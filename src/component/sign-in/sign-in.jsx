@@ -71,15 +71,7 @@ class SignIn extends React.Component {
             <button onClick={signInWithGoogle} className="social-signin google">
               Log in with Google
             </button>
-            <p style={{ color: "white" }}>
-              Don't have an account:{" "}
-              <Link to="/signup">
-                {" "}
-                <span style={{ color: "#4169E1", textDecoration: "underline" }}>
-                  Sign up
-                </span>
-              </Link>{" "}
-            </p>
+           
           </fieldset>
         </form>
       </div>

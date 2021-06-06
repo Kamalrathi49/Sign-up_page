@@ -2,7 +2,7 @@ import React from "react";
 
 import SignInAndSignUp_page from "./pages/signin-signup/signin-signup_page.jsx";
 import SignOut from "./component/sign-out/signOut.jsx";
-import HomePage from "./component/home-page/homepage.jsx";
+import HomePage from "./pages/homepage/homepage.jsx";
 
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 
