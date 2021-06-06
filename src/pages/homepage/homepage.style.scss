@@ -1,0 +1,54 @@
+.containers {
+  text-align: center;
+  align-content: center;
+  background: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.heading {
+  color:wheat ;
+  font-size: 40px;
+  overflow: hidden;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+
+.social-profile {
+  margin: 40px;
+}
+
+.btn {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  white-space: normal;
+  background: none;
+  color: inherit;
+  transition: box-shadow 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+    border-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+    transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+    background-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 10px;
+  padding: 18px;
+  margin-left: 10px;
+  border: white 2px solid;
+  cursor: pointer;
+  width: 55%;
+
+  @media screen and (max-width: 900px) {
+    width: 90%;
+  }
+}
+.btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.logo {
+  padding: 23px;
+}

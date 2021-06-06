@@ -1,7 +1,6 @@
 import React from "react";
 
-import SignIn from "./component/sign-in/sign-in.jsx";
-import SignUp from "./component/sign-up/signup.jsx";
+import SignInAndSignUp_page from "./pages/signin-signup/signin-signup_page.jsx";
 import SignOut from "./component/sign-out/signOut.jsx";
 import HomePage from "./component/home-page/homepage.jsx";
 
@@ -49,9 +48,8 @@ class App extends React.Component {
         <BrowserRouter>
         <SignOut currentUser={this.state.currentUser} />
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/signup" component={SignUp} />
-          <Route exact  path="/signin" component={SignIn} />
+          <Route path="/home" component={HomePage} />
+          <Route exact path="/" component={SignInAndSignUp_page} />
         </Switch>
         </BrowserRouter>
       </div>

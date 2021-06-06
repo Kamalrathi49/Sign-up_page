@@ -11,9 +11,11 @@ class SignUp extends React.Component {
   constructor() {
     super();
 
-    this.state = {
+    this.state ={
       displayName: "",
       email: "",
+      phone: "",
+      address: "",
       password: "",
       confirmPassword: "",
     };
@@ -22,7 +24,7 @@ class SignUp extends React.Component {
   handleSumbit = async (event) => {
     event.preventDefault();
 
-    const { displayName, email, password, confirmPassword } = this.state;
+    const { displayName, email, phone, address, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
       alert("password don't match");
@@ -40,6 +42,8 @@ class SignUp extends React.Component {
       this.setState({
         displayName: "",
         email: "",
+        phone: "",
+        address: "",
         password: "",
         confirmPassword: "",
       });
@@ -55,7 +59,8 @@ class SignUp extends React.Component {
   };
 
   render() {
-    const { displayName, email, password, confirmPassword } = this.state;
+    const { displayName, email, phone, address, password, confirmPassword } =
+      this.state;
     return (
       <div id="signup-container">
         <header>Sign Up</header>
@@ -70,7 +75,6 @@ class SignUp extends React.Component {
               id="username"
               placeholder="Full Name"
               required
-              autoFocus
             />
 
             <input
@@ -80,6 +84,27 @@ class SignUp extends React.Component {
               onChange={this.handleChange}
               id="email"
               placeholder="E-mail"
+              required
+              
+            />
+
+            <input
+              type="phone"
+              name="phone"
+              value={phone}
+              onChange={this.handleChange}
+              id="phone"
+              placeholder="Phone"
+              required
+            />
+
+            <input
+              type="text"
+              name="address"
+              value={address}
+              onChange={this.handleChange}
+              id="address"
+              placeholder="Address"
               required
             />
 
@@ -102,7 +127,7 @@ class SignUp extends React.Component {
               placeholder="Confirm Password"
               required
             />
-            <br/>
+            <br />
 
             <CustomButton type="submit" id="submit">
               {" "}
@@ -123,6 +148,8 @@ class SignUp extends React.Component {
             </p>
           </fieldset>
         </form>
+        <h1 style={{color:"blue", fontSize:"100px"}}>{this.state.address}</h1>
+
       </div>
     );
   }
