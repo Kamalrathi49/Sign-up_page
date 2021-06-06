@@ -22,7 +22,8 @@ class SignUp extends React.Component {
   handleSumbit = async (event) => {
     event.preventDefault();
 
-    const { displayName, email, password, confirmPassword } = this.state;
+    const { displayName, email, password, confirmPassword } =
+      this.state;
 
     if (password !== confirmPassword) {
       alert("password don't match");
@@ -40,7 +41,6 @@ class SignUp extends React.Component {
       this.setState({
         displayName: "",
         email: "",
-
         password: "",
         confirmPassword: "",
       });
@@ -56,7 +56,8 @@ class SignUp extends React.Component {
   };
 
   render() {
-    const { displayName, email, password, confirmPassword } = this.state;
+    const { displayName, email, password, confirmPassword } =
+      this.state;
     return (
       <div id="signup-container">
         <header>Sign Up</header>
@@ -82,6 +83,8 @@ class SignUp extends React.Component {
               placeholder="E-mail"
               required
             />
+
+           
 
             <input
               type="password"
@@ -112,6 +115,15 @@ class SignUp extends React.Component {
             <button onClick={signInWithGoogle} className="social-signin google">
               Sign up with Google
             </button>
+            <p style={{ color: "white" }}>
+              Already have an account:{" "}
+              <Link to="/signin">
+                {" "}
+                <span style={{ color: "#4169E1", textDecoration: "underline" }}>
+                  Sign up
+                </span>
+              </Link>{" "}
+            </p>
           </fieldset>
         </form>
       </div>
